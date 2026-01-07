@@ -44,6 +44,17 @@ func randomFormat() string {
 	return formats[rand.Intn(len(formats))]
 }
 
+func HelloRandom(name string) (string, error) {
+	//
+	if name == "" {
+		return name, errors.New("empty name")
+	}
+	// create a message using a random format.
+	message := fmt.Sprintf(randomFormat(), name)
+	return message, nil
+
+}
+
 // func main() {
 // 	fmt.Println(M())
 // }
