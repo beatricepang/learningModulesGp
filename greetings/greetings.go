@@ -55,6 +55,32 @@ func HelloRandom(name string) (string, error) {
 
 }
 
-// func main() {
-// 	fmt.Println(M())
-// }
+// greetings for multiple people
+
+func helloRandomMultipleSetUp(name string) (string, error) {
+	// if no name is gicen return an error with a message
+	if name == "" {
+		return name, errors.New("empty name")
+	}
+
+	// else oit will default to:
+	// message is
+	message := fmt.Sprintf(randomFormat(), name)
+	return message, nil
+}
+
+func helloRandomeMultipleNames(names []string) (map[string]string, error) {
+	// creates a map to associate names with messages
+	messages := make(map[string]string)
+	// loop through the received slice of names
+	// calling the hello function to get a message for each name
+	for _, name := range names {
+		message, err := helloRandomMultipleSetUp(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = message
+
+	}
+	return messages, nil
+}
