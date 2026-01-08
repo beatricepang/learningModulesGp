@@ -41,15 +41,28 @@ func main() {
 	// Look for a non-nil error value. There's no sense continuing in this case.
 	// Use the functions in the standard library's log package to output error information. If you get an error, you use the log package's Fatal function to print the error and stop the program.
 
-	var testingMessageRandom string
-	testingMessageRandom, err := greetings.HelloRandom("gladys")
-	// random greeting testing
+	// var testingMessageRandom string
+	// testingMessageRandom, err := greetings.HelloRandom("gladys")
+	// // random greeting testing
 
+	// log.SetPrefix("greetings: ")
+	// log.SetFlags(0)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// fmt.Println(testingMessageRandom)
+
+	// multiple random greetings testing
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
+	names := []string{"Gladys", "Samantha", "Darrin"}
+
+	messages, err := greetings.HelloRandomMultipleNames(names)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(testingMessageRandom)
+	fmt.Println(messages)
+
 }

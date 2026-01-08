@@ -69,7 +69,7 @@ func helloRandomMultipleSetUp(name string) (string, error) {
 	return message, nil
 }
 
-func helloRandomeMultipleNames(names []string) (map[string]string, error) {
+func HelloRandomMultipleNames(names []string) (map[string]string, error) {
 	// creates a map to associate names with messages
 	messages := make(map[string]string)
 	// loop through the received slice of names
